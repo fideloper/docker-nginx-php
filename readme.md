@@ -6,7 +6,7 @@ You can build this yourself after cloning the project (assuming you have Docker 
 
 ```bash
 cd /path/to/repo/docker-nginx-php
-docker built -t webapp . # Build a Docker image named "webapp" from this location "."
+docker build -t webapp . # Build a Docker image named "webapp" from this location "."
 # wait for it to build...
 
 # Run the docker container
