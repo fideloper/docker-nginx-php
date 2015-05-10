@@ -10,7 +10,7 @@ These are the steps I took to install nginx from a new cloud@cost vm. As long as
 - log out then back in for permissions to take effect
 
 ##get/configure nginx-php
-- git clone https://github.com/BlackthornYugen/docker-nginx-php.git
+- git clone https://github.com/BlackthornYugen/ubuntu-docker-nginx.git
 - cd docker-nginx-php
 - make and save changes ( optional )
 - docker build nginx .
