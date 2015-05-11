@@ -1,3 +1,6 @@
 .DS_Store
 ._*
 .vagrant
+data/
+www/
+.idea/
