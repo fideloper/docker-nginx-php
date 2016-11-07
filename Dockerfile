@@ -1,5 +1,7 @@
 FROM phusion/baseimage:0.9.15
 
+RUN ls /
+
 # Ensure UTF-8
 RUN locale-gen en_US.UTF-8
 ENV LANG       en_US.UTF-8
@@ -14,7 +16,7 @@ CMD ["/sbin/my_init"]
 # Nginx-PHP Installation
 RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y vim curl wget build-essential python-software-properties
-RUN add-apt-repository -y ppa:ondrej/php5
+RUN add-apt-repository -y ppa:ondrej/php5-oldstable
 RUN add-apt-repository -y ppa:nginx/stable
 RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y --force-yes php5-cli php5-fpm php5-mysql php5-curl\
