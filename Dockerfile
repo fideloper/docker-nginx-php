@@ -17,10 +17,15 @@ CMD ["/sbin/my_init"]
 RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y vim curl wget build-essential python-software-properties
 RUN add-apt-repository -y ppa:ondrej/php5-oldstable
+RUN add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:nginx/stable
 RUN apt-get update
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y --force-yes php5-cli php5-fpm php5-mysql php5-curl\
 		       php5-gd php5-mcrypt php5-intl php5-imap php5-tidy php5-memcache php5-redis
+
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y php7.0-cli php7.0-fpm php7.0-mysql php7.0-curl\
+		       php7.0-gd php7.0-mcrypt php7.0-intl php7.0-imap php7.0-tidy php7.0-memcache \
+					 php7.0-redis php7.0-mbstring
 
 RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php5/fpm/php.ini
 RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php5/cli/php.ini
