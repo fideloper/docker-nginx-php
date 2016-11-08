@@ -21,7 +21,7 @@ server {
 
     error_page 404 /index.php;
 
-    # pass the PHP scripts to php5-fpm
+    # pass the PHP scripts to php7-fpm
     # Note: \.php$ is susceptible to file upload attacks
     # Consider using: "location ~ ^/(index|app|app_dev|config)\.php(/|$) {"
     location ~ \.php$ {
