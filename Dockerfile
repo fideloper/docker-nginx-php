@@ -29,11 +29,12 @@ RUN phpenmod mcrypt
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y nginx
 
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN mkdir /run/php
 
 RUN sed -i "/;clear_env = .*/c\clear_env = no" /etc/php/7.0/fpm/pool.d/www.conf \
     && sed -i "/;catch_workers_output = .*/c\catch_workers_output = yes" /etc/php/7.0/fpm/pool.d/www.conf \
     && sed -i "/pid = .*/c\;pid = /run/php/php7.0-fpm.pid" /etc/php/7.0/fpm/php-fpm.conf \
-    && sed -i "/;daemonize = .*/c\daemonize = no" /etc/php/7.0/fpm/php-fpm.conf \
+    && sed -i "/;daemonize = .*/c\daemonize = no" /etc/php/7.0/fpm/php-fpm.conf
 
 RUN mkdir -p        /var/www
 ADD build/default   /etc/nginx/sites-available/default
