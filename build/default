@@ -21,13 +21,13 @@ server {
 
     error_page 404 /index.php;
 
-    # pass the PHP scripts to php5-fpm
+    # pass the PHP scripts to php7-fpm
     # Note: \.php$ is susceptible to file upload attacks
     # Consider using: "location ~ ^/(index|app|app_dev|config)\.php(/|$) {"
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        # With php5-fpm:
-        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        # With php7-fpm:
+        fastcgi_pass unix:/var/run/php/php7.3-fpm.sock;
         fastcgi_index index.php;
         include fastcgi_params;
         include fastcgi.conf;
